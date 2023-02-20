@@ -1,0 +1,11 @@
+.containerButtons{
+    display: flex;
+    gap: 15px;
+}
+.button{
+width: 100px;
+height: 60px;
+background-color: cyan;
+border-radius: 4px;
+box-shadow: 4px 4px #888888;
+}

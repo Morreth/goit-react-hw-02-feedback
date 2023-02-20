@@ -1,22 +1,24 @@
-import { ButtonOption } from 'components';
+import css from './FeedbackOptions.module.css';
 import PropTypes from 'prop-types';
 
-export function FeedbackOptions({ buttonList, incrementState }) {
-  return buttonList.map(id => (
-    <ButtonOption key={id} title={id} incrementState={incrementState} />
-  ));
-  // return buttonList.map(({ id, label }) => (
-  //   <ButtonOption key={id} title={label} incrementState={incrementState} />
-  // ));
-}
+export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
+  return (
+    <ul className={css.containerButtons}>
+      {options.map(option => (
+        <li key={option}>
+          <button
+            className={css.button}
+            name={option}
+            onClick={onLeaveFeedback}
+          >
+            {option}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 FeedbackOptions.propTypes = {
-  // buttonList: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     id: PropTypes.string.isRequired,
-  //     label: PropTypes.string.isRequired,
-  //   }).isRequired
-
-  buttonList: PropTypes.arrayOf(PropTypes.string).isRequired,
-  incrementState: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string),
 };
